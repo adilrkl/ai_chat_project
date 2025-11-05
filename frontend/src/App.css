@@ -1,0 +1,212 @@
+body {
+  font-family: sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.chat-container {
+  width: 80%;
+  max-width: 800px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+   flex-grow: 1; /* Sidebar'dan kalan tüm alanı kapla */
+  height: 100vh;
+  max-width: none; /* Eski max-width'i kaldır */
+  width: auto; /* Genişliği esnek yap */
+  border-radius: 0; /* Köşe yuvarlaklığını kaldır */
+}
+
+.messages {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.message {
+  padding: 10px 15px;
+  border-radius: 18px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.message.user {
+  background-color: #3f51b5;
+  align-self: flex-end;
+}
+
+.message.assistant {
+  background-color: #424242;
+  align-self: flex-start;
+}
+
+.message p {
+  margin: 0;
+}
+
+.message-form {
+  display: flex;
+  padding: 20px;
+  border-top: 1px solid #333;
+}
+
+.message-form input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 20px;
+  background-color: #333;
+  color: #e0e0e0;
+  margin-right: 10px;
+}
+
+.message-form button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.message-form button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+/* ... (eski body, message, message-form stilleri aynı kalabilir) ... */
+
+.main-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: #202123;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.new-chat-btn {
+  background: none;
+  border: 1px solid #555;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.session-list {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.session-item {
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.session-item:hover, .session-item.active {
+  background-color: #343541;
+}
+
+/* Cache Separator Stili */
+.cache-separator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  opacity: 0.7;
+}
+
+.cache-line {
+  flex-grow: 1;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #ff9800, transparent);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.4);
+}
+
+.cache-label {
+  font-size: 12px;
+  color: #ff9800;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 4px 8px;
+  background-color: rgba(255, 152, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* Model Selector Bar Stili */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.model-selector-bar {
+  background-color: #1a1a1a;
+  padding: 12px 20px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.model-selector-bar label {
+  color: #b0b0b0;
+  font-weight: 500;
+  min-width: fit-content;
+}
+
+.model-selector-bar select {
+  padding: 8px 12px;
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border: 1px solid #404040;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 250px;
+  transition: all 0.2s ease;
+}
+
+.model-selector-bar select:hover:not(:disabled) {
+  background-color: #353535;
+  border-color: #555;
+}
+
+.model-selector-bar select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.model-selector-bar select option {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+}
+
